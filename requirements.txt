@@ -8,3 +8,5 @@ scikit-learn
 catboost
 notebook
 xgboost
+dill
+-e .

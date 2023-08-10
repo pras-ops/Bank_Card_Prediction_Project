@@ -7,12 +7,13 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder,StandardScaler
+from sklearn.decomposition import PCA
 
 from exception import CustomException
 from logger import logging
 import os
 
-from src.utils import save_object
+from utils import save_object
 
 @dataclass
 class DataTransformationConfig:
@@ -50,7 +51,7 @@ class DataTransformation:
                 "Marital_Status",
                 "Income_Category",
                 "Gender",
-                "Existing Customer"
+                "Attrition_Flag"
             ]
 
             num_pipeline= Pipeline(
@@ -64,12 +65,12 @@ class DataTransformation:
 
                 steps=[
 
-                ("one_hot_encoder",OneHotEncoder()(drop="first"))
+                ("one_hot_encoder",OneHotEncoder(drop="first"))
                 
                 ]
 
             )
-            #pca = PCA(n_components=7)  # Define PCA with the desired number of components
+            pca = PCA(n_components=7)  # Define PCA with the desired number of components
             pca2 = PCA(n_components = 10)
 
             logging.info(f"Categorical columns: {categorical_columns}")
@@ -79,8 +80,8 @@ class DataTransformation:
                 [
                 ("num_pipeline",num_pipeline,numerical_columns),
                 ("cat_pipelines",cat_pipeline,categorical_columns),
-                #("pca", pca, numerical_columns)  # Add PCA as a step in the pipeline
-                ("pca2", pca2, categorical)
+                ("pca", pca, numerical_columns),  # Add PCA as a step in the pipeline
+                ("pca2", pca2, numerical_columns)
 
                 ]
 
