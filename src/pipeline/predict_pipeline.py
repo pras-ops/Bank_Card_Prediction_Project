@@ -30,73 +30,63 @@ class PredictPipeline:
 
 class CustomData:
     def __init__(self,
-                 name: str,
-                 age: int,
-                 gender: str,
-                 children: int,
-                 edu: int,
-                 marital: int,
-                 income: int,
-                 monthOnBooks: int,
-                 totalRelationshipCount: int,
-                 monthsInactive12mon: int,
-                 contactsCount12mon: int,
-                 creditLimit: float,
-                 totalRevolvingBal: float,
-                 avgOpenToBuy: float,
-                 totalAmtChngQ4Q1: float,
-                 totalTransAmt: float,
-                 totalTransCt: float,
-                 totalCtChngQ4Q1: float,
-                 avgUtilizationRatio: float,
-                 Education_Level:object,
-                 Marital_Status:object,
-                 Income_Category:object,
-                 Gender:object,
-                 Attrition_Flag:object,):
+                 Customer_Age: int,
+                 Dependent_count: int,
+                 Months_on_book: int,
+                 Total_Relationship_Count: int,
+                 Months_Inactive_12_mon: int,
+                 Contacts_Count_12_mon: int,
+                 Credit_Limit: float,
+                 Total_Revolving_Bal: float,
+                 Avg_Open_To_Buy: float,
+                 Total_Amt_Chng_Q4_Q1: float,
+                 Total_Trans_Amt: float,
+                 Total_Trans_Ct: float,
+                 Total_Ct_Chng_Q4_Q1: float,
+                 Avg_Utilization_Ratio: float,
+                 Education_Level: object,
+                 Marital_Status: object,
+                 Income_Category: object,
+                 Gender: object,
+                 Attrition_Flag: object):
          
-        self.name = name
-        self.age = age
-        self.gender = gender
-        self.children = children
-        self.edu = edu
-        self.marital = marital
-        self.income = income
-        self.monthOnBooks = monthOnBooks
-        self.totalRelationshipCount = totalRelationshipCount
-        self.monthsInactive12mon = monthsInactive12mon
-        self.contactsCount12mon = contactsCount12mon
-        self.creditLimit = creditLimit
-        self.totalRevolvingBal = totalRevolvingBal
-        self.avgOpenToBuy = avgOpenToBuy
-        self.totalAmtChngQ4Q1 = totalAmtChngQ4Q1
-        self.totalTransAmt = totalTransAmt
-        self.totalTransCt = totalTransCt
-        self.totalCtChngQ4Q1 = totalCtChngQ4Q1
-        self.avgUtilizationRatio = avgUtilizationRatio
-        self.Education_Level=Education_Level
-        self.Marital_Status=Marital_Status
-        self.Income_Category=Income_Category
-        self.Gender=Gender
-        self.Attrition_Flag=Attrition_Flag
+        self.Customer_Age = Customer_Age
+        self.Dependent_count = Dependent_count
+        self.Months_on_book = Months_on_book
+        self.Total_Relationship_Count = Total_Relationship_Count
+        self.Months_Inactive_12_mon = Months_Inactive_12_mon
+        self.Contacts_Count_12_mon = Contacts_Count_12_mon
+        self.Credit_Limit = Credit_Limit
+        self.Total_Revolving_Bal = Total_Revolving_Bal
+        self.Avg_Open_To_Buy = Avg_Open_To_Buy
+        self.Total_Amt_Chng_Q4_Q1 = Total_Amt_Chng_Q4_Q1
+        self.Total_Trans_Amt = Total_Trans_Amt
+        self.Total_Trans_Ct = Total_Trans_Ct
+        self.Total_Ct_Chng_Q4_Q1 = Total_Ct_Chng_Q4_Q1
+        self.Avg_Utilization_Ratio = Avg_Utilization_Ratio
+        self.Education_Level = Education_Level
+        self.Marital_Status = Marital_Status
+        self.Income_Category = Income_Category
+        self.Gender = Gender
+        self.Attrition_Flag = Attrition_Flag
 
     def get_data_as_data_frame(self):
         try:
             custom_data_input_dict = {
-                "Customer_Age": [self.age],
-                "Dependent_count": [self.children],
-                "Months_on_book": [self.monthOnBooks],
-                "Total_Relationship_Count": [self.totalRelationshipCount],
-                "Months_Inactive_12_mon": [self.monthsInactive12mon],
-                "Contacts_Count_12_mon": [self.contactsCount12mon],
-                "Credit_Limit": [self.creditLimit],
-                "Total_Revolving_Bal": [self.totalRevolvingBal],
-                "Avg_Open_To_Buy": [self.avgOpenToBuy],
-                "Total_Amt_Chng_Q4_Q1": [self.totalAmtChngQ4Q1],
-                "Total_Trans_Amt": [self.totalTransAmt],
-                "Total_Trans_Ct": [self.totalTransCt],
-                "Total_Ct_Chng_Q4_Q1": [self.totalCtChngQ4Q1],
-                "Avg_Utilization_Ratio": [self.avgUtilizationRatio],
+                "Customer_Age": [self.Customer_Age],
+                "Dependent_count": [self.Dependent_count],
+                "Months_on_book": [self.Months_on_book],
+                "Total_Relationship_Count": [self.Total_Relationship_Count],
+                "Months_Inactive_12_mon": [self.Months_Inactive_12_mon],
+                "Contacts_Count_12_mon": [self.Contacts_Count_12_mon],
+                "Credit_Limit": [self.Credit_Limit],
+                "Total_Revolving_Bal": [self.Total_Revolving_Bal],
+                "Avg_Open_To_Buy": [self.Avg_Open_To_Buy],
+                "Total_Amt_Chng_Q4_Q1": [self.Total_Amt_Chng_Q4_Q1],
+                "Total_Trans_Amt": [self.Total_Trans_Amt],
+                "Total_Trans_Ct": [self.Total_Trans_Ct],
+                "Total_Ct_Chng_Q4_Q1": [self.Total_Ct_Chng_Q4_Q1],
+                "Avg_Utilization_Ratio": [self.Avg_Utilization_Ratio],
                 "Education_Level": [self.Education_Level],
                 "Marital_Status": [self.Marital_Status],
                 "Income_Category": [self.Income_Category],

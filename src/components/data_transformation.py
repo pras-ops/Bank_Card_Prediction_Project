@@ -56,7 +56,7 @@ class DataTransformation:
 
             num_pipeline= Pipeline(
                 steps=[
-                ("placeholder", None)
+                ("imputer",SimpleImputer(strategy="median")),
 
                 ]
             )
@@ -65,7 +65,8 @@ class DataTransformation:
 
                 steps=[
 
-                ("one_hot_encoder",OneHotEncoder(drop="first"))
+                ("imputer",SimpleImputer(strategy="most_frequent")),
+                ("one_hot_encoder",OneHotEncoder(drop="first", handle_unknown="ignore"))
                 
                 ]
 
@@ -84,8 +85,6 @@ class DataTransformation:
                 ("pca2", pca2, numerical_columns)
 
                 ]
-
-
             )
 
             return preprocessor
@@ -106,7 +105,6 @@ class DataTransformation:
             preprocessing_obj=self.get_data_transformer_object()
 
             target_column_name="Card_Category"
-            numerical_columns = ["writing_score", "reading_score"]
 
             input_feature_train_df=train_df.drop(columns=[target_column_name],axis=1)
             target_feature_train_df=train_df[target_column_name]
@@ -132,7 +130,6 @@ class DataTransformation:
 
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
                 obj=preprocessing_obj
-
             )
 
             return (

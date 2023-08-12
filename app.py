@@ -7,7 +7,6 @@ from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 from exception import CustomException
 from utils import load_object
 from sklearn.decomposition import PCA
-from sklearn.preprocessing import OneHotEncoder
 
 
 application = Flask(__name__)
@@ -27,30 +26,25 @@ def predict_datapoint():
 
     else:
         data=CustomData(
-            name = request.form.get('name'),
-            age = float(request.form.get('age')),
-            gender = int(request.form.get('gender')),
-            children = float(request.form.get('children')),
-            edu = int(request.form.get('edu')),
-            marital = int(request.form.get('marital')),
-            income = int(request.form.get('income')),
-            monthOnBooks = int(request.form.get('monthOnBooks')),
-            totalRelationshipCount = int(request.form.get('totalRelationshipCount')),
-            monthsInactive12mon = int(request.form.get('monthsInactive12mon')),
-            contactsCount12mon = int(request.form.get('contactsCount12mon')),
-            creditLimit = float(request.form.get('creditLimit')),
-            totalRevolvingBal = float(request.form.get('totalRevolvingBal')),
-            avgOpenToBuy = float(request.form.get('avgOpenToBuy')),
-            totalAmtChngQ4Q1 = float(request.form.get('totalAmtChngQ4Q1')),
-            totalTransAmt = float(request.form.get('totalTransAmt')),
-            totalTransCt = float(request.form.get('totalTransCt')),
-            totalCtChngQ4Q1 = float(request.form.get('totalCtChngQ4Q1')),
-            avgUtilizationRatio = float(request.form.get('avgUtilizationRatio')),
-            Education_Level = request.form.get('Education_Level'),
-            Marital_Status = request.form.get('Marital_Status'),
-            Income_Category = request.form.get('Income_Category'),
-            Gender = request.form.get('Gender'),
-            Attrition_Flag = request.form.get('Attrition_Flag'),
+            Customer_Age=int(request.form.get('Customer_Age')),
+            Dependent_count=int(request.form.get('children')),
+            Months_on_book=int(request.form.get('monthOnBooks')),
+            Total_Relationship_Count=int(request.form.get('totalRelationshipCount')),
+            Months_Inactive_12_mon=int(request.form.get('monthsInactive12mon')),
+            Contacts_Count_12_mon=int(request.form.get('contactsCount12mon')),
+            Credit_Limit=float(request.form.get('creditLimit')),
+            Total_Revolving_Bal=float(request.form.get('totalRevolvingBal')),
+            Avg_Open_To_Buy=float(request.form.get('avgOpenToBuy')),
+            Total_Amt_Chng_Q4_Q1=float(request.form.get('totalAmtChngQ4Q1')),
+            Total_Trans_Amt=float(request.form.get('totalTransAmt')),
+            Total_Trans_Ct=float(request.form.get('totalTransCt')),
+            Total_Ct_Chng_Q4_Q1=float(request.form.get('totalCtChngQ4Q1')),
+            Avg_Utilization_Ratio=float(request.form.get('avgUtilizationRatio')),
+            Education_Level=request.form.get('Education_Level'),
+            Marital_Status=request.form.get('Marital_Status'),
+            Income_Category=request.form.get('Income_Category'),
+            Gender=request.form.get('Gender'),
+            Attrition_Flag=request.form.get('Attrition_Flag')
         )
         pred_df=data.get_data_as_data_frame()
         print(pred_df)
@@ -59,8 +53,8 @@ def predict_datapoint():
         predict_pipeline=PredictPipeline()
         print("Mid Prediction")
         results=predict_pipeline.predict(pred_df)
-        print("after Prediction")
-        return render_template('home.html',results=results[0])
+        print("Results:", results)
+        return render_template('home.html', results=results[0])
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")

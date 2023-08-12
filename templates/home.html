@@ -21,7 +21,7 @@
     <br>
 
     <div class="search">
-      <input name="age" type="text" class="searchTerm" placeholder="Age of the person">
+      <input name="Customer_Age" type="text" class="searchTerm" placeholder="Age of the person">
    </div>
     <br>
 
@@ -141,9 +141,9 @@
             <i class="fa fa-search"></i>
       </button>
    </form>
-   {% if response %}
-      <h2>The card requested by customer will be: {{ response }}</h2>
-    {% endif %}
+   {% if results %}
+<h2>The card requested by customer will be: {{ results }}</h2>
+{% endif %}
 </div>
 
 </body>
