@@ -122,7 +122,8 @@ This project uses a CI/CD pipeline to automate build, test, and deployment proce
 
 ## Web Application
 
-The Flask-based web application allows users to interactively predict the type of card a customer may issue based on input data. Access the application by starting the Flask server and navigating to the provided URL.
+The Flask-based web application allows users to interactively predict the type of card a customer may issue based on input data. Access the application by starting the Flask server and navigating to the provided URL.![Screenshot (96)](https://github.com/pras-ops/Bank_Card_Prediction_Project/assets/56476064/0cda693d-ed02-467a-9dfd-522fff22bf9b)
+
 
 ## Contributing
 
