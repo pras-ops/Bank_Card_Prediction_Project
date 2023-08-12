@@ -70,7 +70,7 @@ class DataTransformation:
                 ]
 
             )
-            pca = PCA(n_components=7)  # Define PCA with the desired number of components
+            #pca = PCA(n_components=7)  # Define PCA with the desired number of components
             pca2 = PCA(n_components = 10)
 
             logging.info(f"Categorical columns: {categorical_columns}")
@@ -80,7 +80,7 @@ class DataTransformation:
                 [
                 ("num_pipeline",num_pipeline,numerical_columns),
                 ("cat_pipelines",cat_pipeline,categorical_columns),
-                ("pca", pca, numerical_columns),  # Add PCA as a step in the pipeline
+                #("pca", pca, numerical_columns),  # Add PCA as a step in the pipeline
                 ("pca2", pca2, numerical_columns)
 
                 ]

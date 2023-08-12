@@ -1,0 +1,150 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Card Product Prediction</title>
+</head>
+<div class="login">
+  <form action="{{ url_for('predict_datapoint')}}" method="post">
+
+    <div class="search">
+      <select name="attrite" class="searchTerm">
+        <option selected>Is the customer still with the bank or not?</option>
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+    </select>
+   </div>
+   <br>
+
+    <div class="search">
+      <input name="name" type="text" class="searchTerm" placeholder="Name of the preson">
+   </div>
+    <br>
+
+    <div class="search">
+      <input name="age" type="text" class="searchTerm" placeholder="Age of the person">
+   </div>
+    <br>
+
+    <div class="search">
+      <select name="gender" class="searchTerm">
+        <option selected>Gender iof the person</option>
+        <option value="0">Female</option>
+        <option value="1">Male</option>
+    </select>
+   </div>
+   <br>
+
+    <div class="search">
+      <input name="children" type="text" class="searchTerm" placeholder="Number of children of the person">
+   </div>
+    <br>
+
+      <div class="search">
+      <select name="edu" class="searchTerm">
+        <option selected>Education of the person</option>
+        <option value="0">College</option>
+        <option value="1">Doctorate</option>
+        <option value="2">Graduate</option>
+        <option value="3">High School</option>
+        <option value="4">Post-Graduate</option>
+        <option value="5">Uneducated</option>
+        <option value="6">Unknown</option>
+    </select>
+   </div>
+   <br>
+
+    <div class="search">
+      <select name="marital" class="searchTerm">
+        <option selected>Marital status of the person</option>
+        <option value="0">Divorced</option>
+        <option value="1">Married</option>
+        <option value="2">Single</option>
+        <option value="3">Unknown</option>
+    </select>
+   </div>
+   <br>
+
+   <div class="search">
+      <select name="income" class="searchTerm">
+        <option selected>Income range of the person</option>
+        <option value="0">$120K +</option>
+        <option value="1">$40K - $60K</option>
+        <option value="2">$60K - $80K</option>
+        <option value="3">$80K - $120K</option>
+        <option value="3">Less than $40K</option>
+        <option value="3">Unknown</option>
+    </select>
+   </div>
+   <br>
+
+   <div class="search">
+      <input name="monthOnBooks" type="text" class="searchTerm" placeholder="Month on books of the person">
+   </div>
+    <br>
+
+   <div class="search">
+      <input name="totalRelationshipCount" type="text" class="searchTerm" placeholder="Total Relationship Count of the person">
+   </div>
+    <br>
+
+    <div class="search">
+      <input name="monthsInactive12mon" type="text" class="searchTerm" placeholder="Months inactive (1-12)">
+   </div>
+    <br>
+
+   <div class="search">
+      <input name="contactsCount12mon" type="text" class="searchTerm" placeholder="Contacts count (1-10)">
+   </div>
+    <br>
+
+   <div class="search">
+      <input name="creditLimit" type="text" class="searchTerm" placeholder="Credit Limit of the account of the persom">
+   </div>
+    <br>
+
+   <div class="search">
+      <input name="totalRevolvingBal" type="text" class="searchTerm" placeholder="Total Revolving Balance in the account">
+   </div>
+    <br>
+
+   <div class="search">
+      <input name="avgOpenToBuy" type="text" class="searchTerm" placeholder="Average open to buy of the account">
+   </div>
+    <br>
+
+   <div class="search">
+      <input name="totalAmtChngQ4Q1" type="text" class="searchTerm" placeholder="Total amount change from Q4 to Q1 of the account">
+   </div>
+    <br>
+
+   <div class="search">
+      <input name="totalTransAmt" type="text" class="searchTerm" placeholder="Total transferred amount from the account">
+   </div>
+    <br>
+
+   <div class="search">
+      <input name="totalTransCt" type="text" class="searchTerm" placeholder="Total transferred credit from the account">
+   </div>
+    <br>
+
+   <div class="search">
+      <input name="totalCtChngQ4Q1" type="text" class="searchTerm" placeholder="Total credit change from Q4to Q1 of the account">
+   </div>
+    <br>
+
+   <div class="search">
+      <input name="avgUtilizationRatio" type="text" class="searchTerm" placeholder="Total average utilization ratio of the account (range between 0 to 1)">
+   </div>
+    <br>
+
+      <button type="submit" name="pred_button" class="searchButton"> Submit
+            <i class="fa fa-search"></i>
+      </button>
+   </form>
+   {% if response %}
+      <h2>The card requested by customer will be: {{ response }}</h2>
+    {% endif %}
+</div>
+
+</body>
+</html>
