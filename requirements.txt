@@ -1,13 +1,12 @@
-Django
 numpy
 pandas
 scipy
 seaborn
 matplotlib
 scikit-learn
-catboost
 notebook
 xgboost
 dill
 Flask
+DVC
 -e .
